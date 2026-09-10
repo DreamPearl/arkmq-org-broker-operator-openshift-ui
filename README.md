@@ -97,19 +97,19 @@ push it to an image registry.
 1. Build the image:
 
    ```sh
-   docker build -t quay.io/my-repository/my-plugin:latest .
+   docker build -t quay.io/arkmq-org/arkmq-org-broker-operator-openshift-ui:latest .
    ```
 
 2. Run the image:
 
    ```sh
-   docker run -it --rm -d -p 9001:80 quay.io/my-repository/my-plugin:latest
+   docker run -it --rm -d -p 9001:80 quay.io/arkmq-org/arkmq-org-broker-operator-openshift-ui:latest
    ```
 
 3. Push the image:
 
    ```sh
-   docker push quay.io/my-repository/my-plugin:latest
+   docker push quay.io/arkmq-org/arkmq-org-broker-operator-openshift-ui:latest
    ```
 
 NOTE: If you have a Mac with Apple silicon, you will need to add the flag
@@ -133,7 +133,7 @@ new namespace or an existing namespace, providing the location of the image
 within the `plugin.image` parameter:
 
 ```shell
-helm upgrade -i  my-plugin charts/openshift-console-plugin -n my-namespace --create-namespace --set plugin.image=my-plugin-image-location
+helm upgrade -i arkmq-org-broker-operator-openshift-ui charts/openshift-console-plugin -n arkmq-ui-plugin --create-namespace --set plugin.image=quay.io/arkmq-org/arkmq-org-broker-operator-openshift-ui:latest
 ```
 
 NOTE: When deploying on OpenShift 4.10, it is recommended to add the parameter `--set plugin.securityContext.enabled=false` which will omit configurations related to Pod Security.
